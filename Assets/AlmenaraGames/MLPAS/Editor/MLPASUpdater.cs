@@ -76,7 +76,7 @@ namespace AlmenaraGames
 
                 GUIContent icon = new GUIContent(iconData);
                 var egu = typeof(EditorGUIUtility);
-                var flags = System.Reflection.BindingFlags.InvokeMethod | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic;
+                var flags = System.Reflection.BindingFlags.InvokeMethod | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public;
                 var args = new object[] { obj, icon.image };
                 var setIcon = egu.GetMethod("SetIconForObject", flags, null, new System.Type[] { typeof(UnityEngine.Object), typeof(Texture2D) }, null);
                 setIcon.Invoke(null, args);
@@ -101,7 +101,7 @@ namespace AlmenaraGames
 
                 GUIContent icon = new GUIContent(iconData);
                 var egu = typeof(EditorGUIUtility);
-                var flags = System.Reflection.BindingFlags.InvokeMethod | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic;
+                var flags = System.Reflection.BindingFlags.InvokeMethod | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public;
                 var args = new object[] { obj, icon.image };
                 var setIcon = egu.GetMethod("SetIconForObject", flags, null, new System.Type[] { typeof(UnityEngine.Object), typeof(Texture2D) }, null);
                 setIcon.Invoke(null, args);
