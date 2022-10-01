@@ -60,10 +60,6 @@ public class InteractableZone : MonoBehaviour
             return;
         }
 
-
-
-
-
     }
 
     private void OnTriggerExit(Collider other)

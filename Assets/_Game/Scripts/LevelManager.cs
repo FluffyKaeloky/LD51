@@ -17,4 +17,9 @@ public class LevelManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void Win()
+    {
+        print("gg you win");
+    }
 }
