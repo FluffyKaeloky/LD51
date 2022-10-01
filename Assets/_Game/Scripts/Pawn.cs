@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -79,13 +80,13 @@ public class Pawn : MonoBehaviour
             rigidbody.MoveRotation(newRot);
         }
 
-        Debug.DrawLine(transform.position, transform.position + rigidbody.velocity, Color.red);
+        Debug.DrawLine(transform.position, transform.position + (newPos - oldPos).normalized, Color.red);
         Debug.DrawLine(transform.position, transform.position - groundNormal, Color.blue);
     }
 
     public void LookTo(Vector2 direction)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, transform.position.y, direction.y));
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(new Vector3(direction.x, transform.position.y, direction.y), Vector3.up).normalized);
 
         Quaternion newRot = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSlerpFactor);
 

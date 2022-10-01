@@ -28,6 +28,11 @@ public class FieldOfView : MonoBehaviour
         viewMeshFilter.mesh = viewMesh;
     }
 
+    private void FixedUpdate()
+    {
+        FindVisibleTargets();
+    }
+
     void LateUpdate()
     {
         DrawFieldOfView();

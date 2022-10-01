@@ -35,7 +35,10 @@ public class PawnMoveTo : ActionTask
 
     protected override async void OnExecute()
     {
-        if (targetTransform != null)
+        vectorPath.Clear();
+        currentTarget = null;
+
+        if (targetTransform != null && targetTransform.value != null)
             target = targetTransform.value.position;
 
         ABPath path = ABPath.Construct(pawn.transform.position, target.value);
@@ -48,9 +51,16 @@ public class PawnMoveTo : ActionTask
         }
 
         vectorPath = new Queue<Vector3>(path.vectorPath);
+        /*if (vectorPath.Count > 1)
+            vectorPath.Dequeue();*/
         currentAcceleration = 0.0f;
 
         MonoManager.current.onFixedUpdate += OnFixedUpdate;
+
+        foreach (Vector3 v in vectorPath)
+        {
+            DebugExtension.DebugWireSphere(v, Color.red, 1.0f, 5.0f);
+        }
     }
 
     protected override void OnStop()
