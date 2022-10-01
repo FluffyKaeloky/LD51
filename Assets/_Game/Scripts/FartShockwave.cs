@@ -51,9 +51,9 @@ public class FartShockwave : MonoBehaviour
                 Transform child = transform.GetChild(i);
 
                 child.localScale = new Vector3(
-                    x * force * i * innerScaleDistanceMultipler,
+                    x * (force/2.0f) * i * innerScaleDistanceMultipler,
                     1.0f,
-                    x * force * i * innerScaleDistanceMultipler);
+                    x * (force/2.0f) * i * innerScaleDistanceMultipler);
             }
 
             Color c = shockwaveMaterial.color;
@@ -69,6 +69,7 @@ public class FartShockwave : MonoBehaviour
 
             newHits.ForEach(x => onEntityHit?.Invoke(new OnEntityHitArgs(x)));
             hitEntities.AddRange(newHits);
+            DebugExtension.DebugWireSphere(transform.position, Color.blue, x * force, 1);
 
         }, 0.0f, 1.0f, force * timePerForceFactor)
             .OnComplete(() => 

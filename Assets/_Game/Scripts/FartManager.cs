@@ -22,7 +22,7 @@ public class FartManager : MonoBehaviour
     [SerializeField] private LayerMask glassMask;
 
     private float noFartTime;
-
+    public FartShockwave fartShockwavePrefab;
     public UnityEvent onFart = new UnityEvent();
     public UnityEvent onHoldIt = new UnityEvent();
 
@@ -72,12 +72,24 @@ public class FartManager : MonoBehaviour
     public void Fart()
     {
         print("farted" + fartWillValue);
+        float fartPower = fartWillValue;
+
         fartSlider.gameObject.transform.DOShakePosition(0.8f,new Vector3(1,1,0),50,90,false, true,ShakeRandomnessMode.Full);
         fartSlider.gameObject.transform.DOShakeScale(0.6f, new Vector3(0.1f, 0.1f, 0), 20, 90, true, ShakeRandomnessMode.Full);
 
-        onFart?.Invoke();
+        FartShockwave instance = Instantiate(fartShockwavePrefab, transform.position, Quaternion.identity);
+        instance.force = fartWillValue * 5;
+        instance.onEntityHit.AddListener((x) => 
+        {
 
-        //BreakGlass
+            if (fartPower >= breakGlassValue)
+            {
+
+                x.Entity.GetComponent<GlassObject>()?.BreakGlass();
+            }
+        });
+
+        /*//BreakGlass
         if (fartWillValue >= breakGlassValue)
         {
             Collider[] aroundGlasses = Physics.OverlapSphere(transform.position, fartWillValue * 2f, glassMask);
@@ -85,7 +97,10 @@ public class FartManager : MonoBehaviour
             {
                 glass.GetComponent<GlassObject>().BreakGlass();
             }
-        }
+        }*/
+
+        onFart?.Invoke();
+
 
         //resetFart
         fartSlider.value = 0;
