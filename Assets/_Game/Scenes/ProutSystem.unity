@@ -944,114 +944,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1107836300, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: endColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: endColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: endColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: endColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
       propertyPath: fartSlider
       value: 
       objectReference: {fileID: 1524958214}
     - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: startColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: startColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: startColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: startColor.r
-      value: 0.42137337
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: lerpedColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: lerpedColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: lerpedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: lerpedColor.r
-      value: 0.41960785
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: willValueSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
       propertyPath: sliderFillImage
       value: 
       objectReference: {fileID: 2019821877}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[0].inSlope
-      value: 0.023103582
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[1].inSlope
-      value: 3.2126472
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: onFart.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[0].outSlope
-      value: 0.023103582
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[1].inWeight
-      value: 0.15416664
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[1].outSlope
-      value: 3.2126472
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: fartWillCurve.m_Curve.Array.data[0].outWeight
-      value: 0.40833333
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: onFart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789304910, guid: 357b5a801acc9a84b98420ab8765cfe4, type: 3}
-      propertyPath: onFart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3096466635401670104, guid: 357b5a801acc9a84b98420ab8765cfe4,
         type: 3}
       propertyPath: m_RootOrder
