@@ -7,28 +7,40 @@ using UnityEngine.Events;
 public class InteractableZone : MonoBehaviour
 {
 
-    [SerializeField] private GameObject showSpritePivot;
-    [SerializeField] private Outline outlineObject;
+    private Outline outlineObject;
+    [SerializeField] private GameObject showInteractSpritePivot;
+    [SerializeField] private GameObject showRequireSpritePivot;
 
-    [SerializeField] private bool isPlayerInside = false;
-    [SerializeField] private bool canInteracte = true;
+    private bool isPlayerInside = false;
+    
+    [SerializeField] private bool isInstantInteracting;
 
+    private bool canInteracte = true;
+    [SerializeField] private bool isConditonRequired = false;
+
+    private PlayerInput _PI = null;
     public UnityEvent onIntecact = new UnityEvent();
-    [SerializeField] private PlayerInput _PI = null;
+    public UnityEvent onGetRequireComponent = new UnityEvent();
 
 
 
     private void Start()
     {
-        outlineObject.GetComponentInChildren<Outline>();
-
+        canInteracte = true;
+        outlineObject = GetComponentInChildren<Outline>();
         isPlayerInside = false;
-        ShowFeedBack(false);
+
+        //setup feedback
+        if (showInteractSpritePivot != null) { showInteractSpritePivot.SetActive(false); }
+        if (showRequireSpritePivot != null) { showRequireSpritePivot.SetActive(false); }
+        if (isInstantInteracting) { ShowHoverInteractFeedBack(true); }
+        else { ShowHoverInteractFeedBack(false); }
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (_PI == null)
         {
             _PI = other.GetComponentInParent<PlayerInput>();
@@ -38,34 +50,63 @@ public class InteractableZone : MonoBehaviour
         {
             isPlayerInside = true;
             _PI.currentInteractZone = this;
-
-            ShowFeedBack(true);
+            ShowHoverInteractFeedBack(true);
         }
+
+        if (isInstantInteracting)
+        {
+            isConditonRequired = false;
+            Interact();
+            return;
+        }
+
+
+
+
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         isPlayerInside = false;
-        _PI.currentInteractZone = null;
-
-        ShowFeedBack(false);
+        ShowHoverInteractFeedBack(false);
     }
 
     public void Interact()
     {
-        if (canInteracte)
+        print("Interacted");
+
+        if (canInteracte && !isConditonRequired && isPlayerInside)
         {
             canInteracte = false;
-            ShowFeedBack(false);
+            ShowHoverInteractFeedBack(false);
 
             onIntecact?.Invoke();
         }
+
     }
     
-    public void ShowFeedBack(bool state)
+    public void ShowHoverInteractFeedBack(bool state)
     {
-        if (showSpritePivot != null) { showSpritePivot.SetActive(state); }
+        //Active Desactive Outline
         if (outlineObject != null) { outlineObject.enabled = state; }
+
+        //Active Desactive Key Feedback
+        if (isConditonRequired && showRequireSpritePivot != null)
+        {
+            showRequireSpritePivot.SetActive(state);
+        }
+        else if(showInteractSpritePivot != null)
+        {
+            showInteractSpritePivot.SetActive(state);
+        }
+    }
+
+
+    public void ValidRequireCondition()
+    {
+        isConditonRequired = false;
+        onGetRequireComponent?.Invoke();
     }
 
 }

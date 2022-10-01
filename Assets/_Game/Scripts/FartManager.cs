@@ -18,7 +18,8 @@ public class FartManager : MonoBehaviour
 
     [SerializeField] private float willValueSpeed;
     [SerializeField] private AnimationCurve fartWillCurve;
-
+    [SerializeField] private float breakGlassValue;
+    [SerializeField] private LayerMask glassMask;
 
     private float noFartTime;
 
@@ -70,11 +71,21 @@ public class FartManager : MonoBehaviour
 
     public void Fart()
     {
-        print("farted");
+        print("farted" + fartWillValue);
         fartSlider.gameObject.transform.DOShakePosition(0.8f,new Vector3(1,1,0),50,90,false, true,ShakeRandomnessMode.Full);
         fartSlider.gameObject.transform.DOShakeScale(0.6f, new Vector3(0.1f, 0.1f, 0), 20, 90, true, ShakeRandomnessMode.Full);
 
         onFart?.Invoke();
+
+        //BreakGlass
+        if (fartWillValue >= breakGlassValue)
+        {
+            Collider[] aroundGlasses = Physics.OverlapSphere(transform.position, fartWillValue * 2f, glassMask);
+            foreach (var glass in aroundGlasses)
+            {
+                glass.GetComponent<GlassObject>().BreakGlass();
+            }
+        }
 
         //resetFart
         fartSlider.value = 0;
