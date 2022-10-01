@@ -10,6 +10,7 @@ public class PawnMoveTo : ActionTask
     public BBParameter<Vector3> target = Vector3.zero;
     public BBParameter<Transform> targetTransform = null;
 
+    public float waypointCompletionDistance = 0.15f;
     public BBParameter<float> completionDistance = 0.15f;
 
     public bool damping = true;
@@ -82,15 +83,16 @@ public class PawnMoveTo : ActionTask
         }
         float distance = Vector3.Distance(pawn.transform.position, currentTarget.Value);
         float dampingValue = 1.0f;
+        float finalCompletionDistance = (vectorPath.Count == 0 ? completionDistance.value : waypointCompletionDistance);
 
-        if (damping && vectorPath.Count == 0 && distance <= dampingDistance)
-            dampingValue = Mathf.Clamp(distance / dampingDistance, 0.05f, 1.0f);
+        if (damping && vectorPath.Count == 0 && distance - finalCompletionDistance <= dampingDistance)
+            dampingValue = Mathf.Clamp((distance - finalCompletionDistance) / dampingDistance, 0.05f, 1.0f);
 
         Vector3 direction = Vector3.ProjectOnPlane(currentTarget.Value - pawn.transform.position, Vector3.up).normalized * currentAcceleration * dampingValue;
 
         pawn.Move(direction.x, direction.z);
 
-        if (distance <= completionDistance.value)
+        if (distance <= finalCompletionDistance)
             currentTarget = null;
 
         currentAcceleration = Mathf.Clamp01(currentAcceleration + Time.fixedDeltaTime * acceleration);

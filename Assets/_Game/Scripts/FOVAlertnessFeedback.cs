@@ -38,7 +38,7 @@ public class FOVAlertnessFeedback : MonoBehaviour
 
     public void SetAlertness(float alertness)
     {
-        if (alertnessManager.AlertState == AlertnessManager.AlertStates.NoAlert)
+        if (alertnessManager.AlertState != AlertnessManager.AlertStates.Chasing)
             material.color = Color.Lerp(baseColor, alertingColor, alertness);
         else
             material.DOColor(alertedColor, 0.5f);

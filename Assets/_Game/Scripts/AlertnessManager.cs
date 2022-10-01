@@ -22,7 +22,7 @@ public class AlertnessManager : MonoBehaviour
 
     public AlertStates AlertState { get; private set; } = AlertStates.NoAlert;
 
-    public Vector3 LastKnownPlayerLocation { get; private set; } = Vector3.zero;
+    public Vector3 LastKnownPlayerLocation { get; set; } = Vector3.zero;
 
     public float alertTime = 1.0f;
     public float forgetDelay = 1.0f;
@@ -35,28 +35,38 @@ public class AlertnessManager : MonoBehaviour
     private float lastSeenTime = 0.0f;
 
     private float baseFovRadius = 0.0f;
+    private float highFovRadius = 0.0f;
 
     private void Start()
     {
         baseFovRadius = fieldOfView.viewRadius;
+        highFovRadius = baseFovRadius + alertRangeGain;
     }
 
     private void Update()
     {
         if (HasPlayerLOS)
         {
+            /*if (AlertState == AlertStates.Alerted)
+                alertness = 1.0f;*/
+
             alertness += Time.deltaTime;
 
             if (alertness >= alertTime && AlertState != AlertStates.Chasing)
             {
                 AlertState = AlertStates.Chasing;
-                DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius + alertRangeGain * x; }, 0.0f, 1.0f, 1.0f);
+                DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius + (alertRangeGain * x); }, 0.0f, 1.0f, 1.0f);
             }
 
             lastSeenTime = Time.time;
             LastKnownPlayerLocation = PlayerTransform.position;
 
             return;
+        }
+        else if (AlertState == AlertStates.Alerted)
+        {
+            if (Time.time - lastSeenTime >= forgetDelay)
+                alertness = Mathf.Max(alertness - forgetRate * Time.deltaTime, 0.90f * alertTime);
         }
 
         if (AlertState == AlertStates.NoAlert)
@@ -68,8 +78,25 @@ public class AlertnessManager : MonoBehaviour
 
     public void ResetAlertState()
     {
+        AlertStates oldState = AlertState;
         AlertState = AlertStates.NoAlert;
-        float highRadius = fieldOfView.viewRadius;
-        DOTween.To(x => { fieldOfView.viewRadius = highRadius - alertRangeGain * x; }, 0.0f, 1.0f, 1.0f);
+        
+        if (oldState == AlertStates.Chasing)
+            DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius - (alertRangeGain * (1.0f - x)); }, 0.0f, 1.0f, 1.0f);
     }
+
+    public void BecomeAlerted(Vector3? source)
+    {
+        if (AlertState != AlertStates.NoAlert)
+            return;
+
+        AlertState = AlertStates.Alerted;
+        if (source == null)
+            LastKnownPlayerLocation = LevelManager.Instance.PlayerInput.transform.position;
+        else
+            LastKnownPlayerLocation = source.Value;
+    }
+
+    public void BecomeAlerted() =>
+        BecomeAlerted(null);
 }

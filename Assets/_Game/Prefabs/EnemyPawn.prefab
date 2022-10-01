@@ -255,6 +255,11 @@ GameObject:
   - component: {fileID: 8706592987680708048}
   - component: {fileID: 8706592987680708050}
   - component: {fileID: 8706592987680708051}
+  - component: {fileID: 50660082}
+  - component: {fileID: 50660083}
+  - component: {fileID: 50660084}
+  - component: {fileID: 6960268664426327557}
+  - component: {fileID: 50660085}
   m_Layer: 6
   m_Name: EnemyPawn
   m_TagString: Untagged
@@ -406,6 +411,101 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &50660082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  useRaycasting: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 55
+  thickRaycast: 1
+  thickRaycastRadius: 0.5
+  use2DPhysics: 0
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 0
+  quality: 1
+--- !u!114 &50660083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b921f06994e464cad394de04e9b7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfView: {fileID: 1239658560}
+  alertTime: 2
+  forgetDelay: 1
+  forgetRate: 3
+  alertRangeGain: 13
+--- !u!114 &50660084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b25fad0e5bcea4da8cfa3eb0b5bc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alertingColor: {r: 0.6603774, g: 0.3519936, b: 0.3519936, a: 1}
+  alertedColor: {r: 1, g: 0, b: 0, a: 1}
+  renderer: {fileID: 1239658559}
+--- !u!114 &6960268664426327557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef191a33125a2614ab3c73f0512dab93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Enemy
+--- !u!114 &50660085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24c4a6e740570a458a670451da94e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onReceivedShockwave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 50660083}
+        m_TargetAssemblyTypeName: AlertnessManager, Assembly-CSharp
+        m_MethodName: BecomeAlerted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3461588669487188400
 GameObject:
   m_ObjectHideFlags: 0

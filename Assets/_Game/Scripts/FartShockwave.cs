@@ -67,7 +67,10 @@ public class FartShockwave : MonoBehaviour
                 .Except(hitEntities)
                 .ToList();
 
-            newHits.ForEach(x => onEntityHit?.Invoke(new OnEntityHitArgs(x)));
+            newHits.ForEach(x => {
+                onEntityHit?.Invoke(new OnEntityHitArgs(x));
+                x.GetComponentInParent<FartShockwaveReceiver>()?.ReceiveShockwave();
+            });
             hitEntities.AddRange(newHits);
             DebugExtension.DebugWireSphere(transform.position, Color.blue, x * force, 1);
 
