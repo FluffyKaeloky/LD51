@@ -132,7 +132,7 @@ Transform:
   m_Children:
   - {fileID: 3096466635757040252}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3096466635401670105
 Rigidbody:
@@ -196,37 +196,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fartSlider: {fileID: 0}
+  sliderFillImage: {fileID: 0}
+  lerpedColor: {r: 0.41960785, g: 1, b: 0, a: 1}
+  startColor: {r: 0.42137337, g: 1, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
   refrainFartValue: 1
-  fartWillValue: 0
-  willValueSpeed: 0.25
-  noFartTime: 0
-  refrainTime: 0
-  loadFartSpeed: 1
+  willValueSpeed: 0.2
   fartWillCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.023103582
+      outSlope: 0.023103582
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.40833333
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 3.2126472
+      outSlope: 3.2126472
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.15416664
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   onFart:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoldIt:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3096466635757040243
