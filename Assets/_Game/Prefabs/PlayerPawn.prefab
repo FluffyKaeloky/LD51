@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 3096466635401670105}
   - component: {fileID: 3096466635401670107}
   - component: {fileID: 3096466635401670106}
+  - component: {fileID: 1789304910}
   m_Layer: 6
   m_Name: PlayerPawn
   m_TagString: Player
@@ -181,6 +182,56 @@ MonoBehaviour:
   playerIndex: 0
   horizontalInputName: Horizontal
   verticalInputName: Vertical
+  holdItInputName: HoldIt
+--- !u!114 &1789304910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096466635401670111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8974284435b7a0245a6c10f56477762f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fartSlider: {fileID: 0}
+  sliderFillImage: {fileID: 0}
+  lerpedColor: {r: 0.41960785, g: 1, b: 0, a: 1}
+  startColor: {r: 0.42137337, g: 1, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+  refrainFartValue: 1
+  willValueSpeed: 0.2
+  fartWillCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.023103582
+      outSlope: 0.023103582
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.40833333
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.2126472
+      outSlope: 3.2126472
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15416664
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  onFart:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoldIt:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3096466635757040243
 GameObject:
   m_ObjectHideFlags: 0
