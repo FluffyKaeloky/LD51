@@ -44,11 +44,14 @@ public class FartManager : MonoBehaviour
             sliderFillImage.color = lerpedColor;
         }
 
+        if (fartSlider != null)
+        {
+            fartSlider.value = Mathf.MoveTowards(fartSlider.value, fartSlider.maxValue, loadFartSpeed * Time.deltaTime);
 
-        fartSlider.value = Mathf.MoveTowards(fartSlider.value, fartSlider.maxValue, loadFartSpeed * Time.deltaTime);
+        }
         loadFartSpeed = Mathf.Lerp(1, 10, fartWillCurve.Evaluate(fartWillValue));
 
-        if (fartSlider.value == fartSlider.maxValue)
+        if (fartSlider.value == fartSlider.maxValue && fartSlider != null)
         {
             Fart();
         }
@@ -56,8 +59,12 @@ public class FartManager : MonoBehaviour
 
     public void RefrainFart()
     {
-        fartSlider.value -= refrainFartValue;
-        onHoldIt?.Invoke();
+        if (fartSlider != null)
+        {
+            fartSlider.value -= refrainFartValue;
+            onHoldIt?.Invoke();
+        }
+    
     }
 
 
@@ -83,7 +90,10 @@ public class FartManager : MonoBehaviour
     //if value Needed
     public void RefrainFart(int value)
     {
-        fartSlider.value -= value;
+        if (fartSlider != null)
+        {
+            fartSlider.value -= value;
+        }
     } 
 
 

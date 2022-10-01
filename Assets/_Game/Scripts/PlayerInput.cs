@@ -12,11 +12,14 @@ public class PlayerInput : InputBase
     public string horizontalInputName = "Horizontal";
     public string verticalInputName = "Vertical";
     public string holdItInputName = "HoldIt";
+    public string interactInputName = "Interact";
+
 
 
     private Player player = null;
     private Pawn pawn = null;
     private FartManager fartManager;
+    public InteractableZone currentInteractZone;
 
     private float horizontalInput, verticalInput;
 
@@ -36,7 +39,12 @@ public class PlayerInput : InputBase
         {
             fartManager.RefrainFart();
         }
-        
+
+        if (player.GetButtonDown(interactInputName) && currentInteractZone != null)
+        {
+            currentInteractZone.Interact();
+        }
+
     }
 
     private void FixedUpdate()
