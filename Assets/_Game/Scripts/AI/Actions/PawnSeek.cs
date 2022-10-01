@@ -70,6 +70,7 @@ public class PawnSeek : ActionTask
         Vector3 direction = Vector3.ProjectOnPlane(currentTarget.Value - pawn.transform.position, Vector3.up).normalized * currentAcceleration;
 
         pawn.Move(direction.x, direction.z);
+        pawn.LookTo(new Vector2(direction.x, direction.z));
 
         if (distance <= completionDistanceWaypoint)
             currentTarget = null;

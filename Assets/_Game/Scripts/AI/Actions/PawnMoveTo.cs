@@ -4,6 +4,8 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 public class PawnMoveTo : ActionTask
 {
@@ -17,6 +19,8 @@ public class PawnMoveTo : ActionTask
     public float dampingDistance = 1.0f;
 
     public float acceleration = 1.0f;
+
+    public BBParameter<bool> alignAtTransformForward = false;
 
     private Pawn pawn = null;
     private Seeker seeker = null;
@@ -41,6 +45,12 @@ public class PawnMoveTo : ActionTask
 
         if (targetTransform != null && targetTransform.value != null)
             target = targetTransform.value.position;
+
+        if (Vector3.Distance(target.value, agent.transform.position) <= completionDistance.value)
+        {
+            EndAction();
+            return;
+        }    
 
         ABPath path = ABPath.Construct(pawn.transform.position, target.value);
         await seeker.StartPath(path);
@@ -75,6 +85,9 @@ public class PawnMoveTo : ActionTask
         {
             if (vectorPath.Count == 0)
             {
+                if (alignAtTransformForward.value)
+                    pawn.LookTo(targetTransform.value.forward);
+
                 EndAction();
                 return;
             }
@@ -91,6 +104,7 @@ public class PawnMoveTo : ActionTask
         Vector3 direction = Vector3.ProjectOnPlane(currentTarget.Value - pawn.transform.position, Vector3.up).normalized * currentAcceleration * dampingValue;
 
         pawn.Move(direction.x, direction.z);
+        pawn.LookTo(new Vector2(direction.x, direction.z));
 
         if (distance <= finalCompletionDistance)
             currentTarget = null;

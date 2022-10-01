@@ -52,5 +52,6 @@ public class PlayerInput : InputBase
         Vector2 input = new Vector2(horizontalInput, verticalInput);
 
         pawn.Move(input.x, input.y);
+        pawn.LookTo(new Vector2(input.x, input.y));
     }
 }

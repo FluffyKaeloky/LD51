@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8165842550565997827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 50660083, guid: 024c05c9bde26aa439e5b8b482d1839d, type: 3}
+      propertyPath: alertTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239658560, guid: 024c05c9bde26aa439e5b8b482d1839d, type: 3}
+      propertyPath: viewAngle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239658560, guid: 024c05c9bde26aa439e5b8b482d1839d, type: 3}
+      propertyPath: viewRadius
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.224
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.146
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747027, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461588668898747028, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyFastPawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706592987680708048, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"PatrolRoute":{"_value":[null],"_name":"PatrolRoute","_id":"099c9a75-0013-48eb-8a78-4f3e58c8cdef","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"AlignAtTransformForwardPatrol":{"_value":true,"_name":"AlignAtTransformForwardPatrol","_id":"3cf975d9-5f07-4a9a-9a75-3581f85afd59","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706592987680708048, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: _objectReferences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706592987680708048, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[0]._json
+      value: '{"_value":[null],"_name":"PatrolRoute","_id":"099c9a75-0013-48eb-8a78-4f3e58c8cdef","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706592987680708048, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[1]._json
+      value: '{"_value":true,"_name":"AlignAtTransformForwardPatrol","_id":"3cf975d9-5f07-4a9a-9a75-3581f85afd59","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706592987680708048, guid: 024c05c9bde26aa439e5b8b482d1839d,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[0]._references.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 024c05c9bde26aa439e5b8b482d1839d, type: 3}

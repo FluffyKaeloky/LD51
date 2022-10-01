@@ -28,6 +28,8 @@ public class Pawn : MonoBehaviour
     private List<Collider> groundCollisions = new List<Collider>();
     private List<ContactPoint> contacts = new List<ContactPoint>(10);
 
+    private Vector2 targetRotation = Vector2.zero;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -69,7 +71,7 @@ public class Pawn : MonoBehaviour
         rigidbody.MovePosition(newPos);
 
         //Rotation
-        Vector3 velocityChangeDirection = Vector3.ProjectOnPlane(newPos - oldPos, Vector3.up).normalized;
+        /*targetRotation = Vector3.ProjectOnPlane(newPos - oldPos, Vector3.up).normalized;
 
         if (velocityChangeDirection.magnitude != 0.0f)
         {
@@ -78,7 +80,7 @@ public class Pawn : MonoBehaviour
             Quaternion newRot = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSlerpFactor);
 
             rigidbody.MoveRotation(newRot);
-        }
+        }*/
 
         Debug.DrawLine(transform.position, transform.position + (newPos - oldPos).normalized, Color.red);
         Debug.DrawLine(transform.position, transform.position - groundNormal, Color.blue);
@@ -86,9 +88,17 @@ public class Pawn : MonoBehaviour
 
     public void LookTo(Vector2 direction)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(new Vector3(direction.x, transform.position.y, direction.y), Vector3.up).normalized);
+        if (direction.magnitude == 0.0f)
+            return;
 
-        Quaternion newRot = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSlerpFactor);
+        targetRotation = direction.normalized;
+    }
+
+    private void FixedUpdate()
+    {
+        Quaternion qTargetRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(new Vector3(targetRotation.x, transform.position.y, targetRotation.y), Vector3.up).normalized);
+
+        Quaternion newRot = Quaternion.Slerp(transform.rotation, qTargetRotation, Time.fixedDeltaTime * rotationSlerpFactor);
 
         rigidbody.MoveRotation(newRot);
     }
