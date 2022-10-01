@@ -54,7 +54,7 @@ public class Pawn : MonoBehaviour
             verticalInput *= airControlMultiplier;
         }
 
-        Vector3 newPos = transform.position + groundNormalModifier * (new Vector3(horizontalInput, 0.0f, verticalInput).normalized) * moveSpeed * Time.fixedDeltaTime;
+        Vector3 newPos = transform.position + groundNormalModifier * new Vector3(horizontalInput, 0.0f, verticalInput) * moveSpeed * Time.fixedDeltaTime;
 
         //Velocity = (newPos - oldPos) * (1.0f / Time.deltaTime);
 
@@ -81,6 +81,15 @@ public class Pawn : MonoBehaviour
 
         Debug.DrawLine(transform.position, transform.position + rigidbody.velocity, Color.red);
         Debug.DrawLine(transform.position, transform.position - groundNormal, Color.blue);
+    }
+
+    public void LookTo(Vector2 direction)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, transform.position.y, direction.y));
+
+        Quaternion newRot = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSlerpFactor);
+
+        rigidbody.MoveRotation(newRot);
     }
 
     private void OnCollisionEnter(Collision collision)

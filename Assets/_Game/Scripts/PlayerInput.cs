@@ -30,6 +30,8 @@ public class PlayerInput : InputBase
 
     private void FixedUpdate()
     {
-        pawn.Move(horizontalInput, verticalInput);
+        Vector2 input = new Vector2(horizontalInput, verticalInput);
+
+        pawn.Move(input.x, input.y);
     }
 }
