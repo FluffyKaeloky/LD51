@@ -3,9 +3,29 @@ guid: 5bada4f8e0d77af4a906d1f3e6a3b3b2
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye
+    second: {fileID: 2100000, guid: 0435cf8a150d1f84f9c7ea78414d4322, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Furr
+    second: {fileID: 2100000, guid: 98874d5f1630b4f4e899701d33934d83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes
+    second: {fileID: 2100000, guid: 2f5384e8a1ccfef489c66cadfacbc1f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suit
+    second: {fileID: 2100000, guid: 410e6e4f721aeae4ba58d1d5a637c6ee, type: 2}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
