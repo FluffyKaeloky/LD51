@@ -1,4 +1,5 @@
 using AlmenaraGames;
+using Cinemachine;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -39,6 +40,8 @@ public class UIRGDialogueView : DialogueViewBase
     public DialoguePacedChars pacedChars = null;
 
     public List<PlayableDirector> playableDirectors = new List<PlayableDirector>();
+
+    public List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
 
     private Animator animator = null;
 
@@ -175,6 +178,20 @@ public class UIRGDialogueView : DialogueViewBase
     {
         Instance.waitingForSignal = true;
         yield return new WaitUntil(() => !Instance.waitingForSignal);
+    }
+
+    [YarnCommand("switch_camera")]
+    private static void SwitchCamera(int cameraIndex)
+    {
+        CinemachineVirtualCamera vcam;
+        if (cameraIndex < 0)
+            vcam = LevelManager.Instance.mainCamera;
+        else
+            vcam = Instance.cameras[cameraIndex];
+
+        Instance.cameras.ForEach(x => x.Priority = 0);
+
+        vcam.Priority = 99;
     }
 
     public void ContinueSignal()

@@ -7,16 +7,25 @@ tags:
 <<r_character_come_in>>
 <<l_character_come_in>>
 
-MrFox: This is a test
-Girl: I know right !
-MrFox: This. Is. The. Pacing. . . TEST !!!?!, boop.
+MrFox: This is a test.
+Girl: I know, right ?
 
-<<no_wait>>
-MrFox: This next line won't be awaited.
+Girl: Gonna switch cameras now.
 
-Girl: Wow !
+<<switch_camera 0>>
+Girl: Hey, did you know that you can break thoses ? Some kind of sonic vibrations should do the trick.
 
-Girl: This line should be awaited.
+<<switch_camera 1>>
+Girl: Thoses guards are pretty much blind on their side. But they'll spot you faster than you can say 'oops' if you get in front of them.
+
+<<switch_camera 2>>
+Girl: Finally, watch out for thoses. While thoses cameras won't kill you if you are spotted by them, they will attract nearby enemies to your location.
+
+<<switch_camera -1>>
+
+Girl: That's it ! Good luck !
+
+MrFox: This line should be awaited.
 
 Girl: End Test.
 ===

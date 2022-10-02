@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public PlayerInput PlayerInput { get => playerInput; }
     [SerializeField]
     private PlayerInput playerInput = null;
+
+    public CinemachineVirtualCamera mainCamera = null;
 
     private void Awake()
     {
