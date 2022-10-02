@@ -40,6 +40,8 @@ public class InteractableZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Entity entity = other.gameObject.GetComponentInParent<Entity>();
+        if (string.Compare(entity.name, "Player") != 0) { return;}
 
         if (_PI == null)
         {
@@ -64,6 +66,10 @@ public class InteractableZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Entity entity = other.gameObject.GetComponentInParent<Entity>();
+        if (string.Compare(entity.name, "Player") != 0) { return; }
+
+
         isPlayerInside = false;
         ShowHoverInteractFeedBack(false);
     }

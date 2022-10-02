@@ -49,7 +49,7 @@ public class PlayerInput : InputBase
 
     private void FixedUpdate()
     {
-        Vector2 input = new Vector2(horizontalInput, verticalInput);
+        Vector2 input = new Vector2(horizontalInput, verticalInput).normalized;
 
         pawn.Move(input.x, input.y);
         pawn.LookTo(new Vector2(input.x, input.y));

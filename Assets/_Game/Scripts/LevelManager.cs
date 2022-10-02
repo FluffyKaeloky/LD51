@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput = null;
 
+
     private void Awake()
     {
         Instance = this;
@@ -21,5 +22,10 @@ public class LevelManager : MonoBehaviour
     public void Win()
     {
         print("gg you win");
+    }
+
+    public void Loose()
+    {
+        print("Oh no you loos");
     }
 }
