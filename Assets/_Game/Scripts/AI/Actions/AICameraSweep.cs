@@ -35,7 +35,6 @@ public class AICameraSweep : ActionTask
 
                 Vector3 targetAngle = Vector3.Lerp(startAngle, endAngle, x);
 
-                Debug.Log("TargetAngle : " + targetAngle);
                 Debug.DrawLine(pawn.transform.position, pawn.transform.position + targetAngle, Color.blue);
                 pawn.LookTo(new Vector2(targetAngle.x, targetAngle.z));
             }, 0.0f, 1.0f, timeForFullSweep.value)
@@ -51,32 +50,10 @@ public class AICameraSweep : ActionTask
     protected override void OnExecute()
     {
         sweepSequence.Play();
-        Debug.Log("Play");
-
-        //MonoManager.current.onFixedUpdate += Current_onFixedUpdate;
     }
 
     protected override void OnStop()
     {
         sweepSequence.Pause();
-        Debug.Log("Pause");
-
-        //MonoManager.current.onFixedUpdate -= Current_onFixedUpdate;
     }
-
-    /*private void Current_onFixedUpdate()
-    {
-        pawn.LookTo(currentAngle);
-
-
-
-        Quaternion q = Quaternion.FromToRotation(pawn.transform.forward, currentAngle);
-        pawn.transform.rotation = q;
-    }
-
-    protected override void OnUpdate()
-    {
-
-
-    }*/
 }
