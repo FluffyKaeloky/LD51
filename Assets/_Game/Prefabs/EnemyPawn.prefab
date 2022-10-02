@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 50660084}
   - component: {fileID: 6960268664426327557}
   - component: {fileID: 50660085}
+  - component: {fileID: 8542468348105650672}
+  - component: {fileID: 2284261148140382623}
   m_Layer: 6
   m_Name: EnemyPawn
   m_TagString: Untagged
@@ -455,6 +457,7 @@ MonoBehaviour:
   forgetDelay: 0.5
   forgetRate: 3
   alertRangeGain: 8
+  reactToAlerts: 1
 --- !u!114 &50660084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +513,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8542468348105650672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61458a07662d564ba8bf28bda1ab341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &2284261148140382623
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.33
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &3461588669487188400
 GameObject:
   m_ObjectHideFlags: 0

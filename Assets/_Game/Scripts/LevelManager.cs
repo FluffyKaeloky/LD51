@@ -23,11 +23,11 @@ public class LevelManager : MonoBehaviour
 
     public void Win()
     {
-        print("gg you win");
+        Debug.LogAssertion("YouWin");
     }
 
     public void Loose()
     {
-        print("OhNoYouLoose");
+        Debug.LogAssertion("OhNoYouLoose");
     }
 }

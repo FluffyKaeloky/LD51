@@ -9,6 +9,11 @@ public class TriggerLoose : MonoBehaviour
     {
         Entity entity = other.gameObject.GetComponentInParent<Entity>();
 
+        if (entity == null)
+        {
+            return;
+        }
+
         if (string.Compare(entity.name,"Player") == 0)
         {
             LevelManager.Instance.Loose();
