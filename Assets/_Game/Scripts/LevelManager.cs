@@ -25,4 +25,9 @@ public class LevelManager : MonoBehaviour
     {
         print("gg you win");
     }
+
+    public void Loose()
+    {
+        print("OhNoYouLoose");
+    }
 }
