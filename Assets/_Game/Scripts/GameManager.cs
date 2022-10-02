@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour
 
     private UIScreenFader screenFader = null;
 
+    private void Start()
+    {
+        screenFader.FadeOut();
+    }
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -75,31 +80,52 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        if (currentLevelIndex == 0)
+        {
+            currentLevelIndex = sceneIndexes[0];
+        }
+        else
+        {
+            currentLevelIndex++;           
+        }
+
         CurrentGameState = GameStates.Loading;
-        currentLevelIndex++;
 
         screenFader.FadeIn(() => 
         {
-            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex]));
+            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex-2]));
         });
     }
 
     private IEnumerator LoadSceneInternal(int sceneIndex)
     {
-        SceneManager.LoadScene(loadingSceneIndex);
+        AsyncOperation op = SceneManager.LoadSceneAsync(loadingSceneIndex);
+
+        while (op.progress < 1.0f)
+            yield return null;
+
+        //SceneManager.LoadScene(loadingSceneIndex);
+
+        screenFader.SnapTo(0.0f);
 
         yield return null;
 
-        AsyncOperation op = SceneManager.LoadSceneAsync(sceneIndex);
+        op = SceneManager.LoadSceneAsync(sceneIndex);
         op.allowSceneActivation = false;
+
+        yield return new WaitForSeconds(3.0f);
 
         while (op.progress < 0.9f)
             yield return null;
 
         op.allowSceneActivation = true;
 
+
         while (op.progress < 1.0f)
             yield return null;
+
+        screenFader.SnapTo(1.0f);
+
 
         screenFader.FadeOut(() => CurrentGameState = GameStates.Intro);
     }

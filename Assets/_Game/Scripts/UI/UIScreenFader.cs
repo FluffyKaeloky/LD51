@@ -37,4 +37,11 @@ public class UIScreenFader : MonoBehaviour
         image.DOFade(0.0f, 1.0f)
             .OnComplete(() => callback?.Invoke());
     }
+
+    public void SnapTo(float alpha)
+    {
+        Color c = image.color;
+        c.a = alpha;
+        image.color = c;
+    }
 }
