@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class TriggerLoose : MonoBehaviour
 {
-
     private void OnTriggerEnter(Collider other)
     {
         Entity entity = other.gameObject.GetComponentInParent<Entity>();
 
-        if (string.Compare(entity.name,"Player") == 0)
+        if (entity != null && string.Compare(entity.name,"Player") == 0)
         {
             LevelManager.Instance.Loose();
         }    

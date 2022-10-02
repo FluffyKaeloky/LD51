@@ -23,6 +23,9 @@ public class Pawn : MonoBehaviour
 
     public float rotationSlerpFactor = 1.0f;
 
+    public Vector2 Velocity { get; private set; } = Vector2.zero;
+    public Vector2 RawInput { get; private set; } = Vector2.zero;
+
     private new Rigidbody rigidbody = null;
 
     private List<Collider> groundCollisions = new List<Collider>();
@@ -59,7 +62,8 @@ public class Pawn : MonoBehaviour
 
         Vector3 newPos = transform.position + groundNormalModifier * new Vector3(horizontalInput, 0.0f, verticalInput) * moveSpeed * Time.fixedDeltaTime;
 
-        //Velocity = (newPos - oldPos) * (1.0f / Time.deltaTime);
+        Velocity = (newPos - oldPos) * (1.0f / Time.deltaTime);
+        RawInput = new Vector2(horizontalInput, verticalInput);
 
         //Gravity
         if (!IsGrounded)
