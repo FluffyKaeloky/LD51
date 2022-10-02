@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6048970999796356846}
   - component: {fileID: 1040696715877922903}
   - component: {fileID: 6738246188633236558}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6048971000035175998}
   - component: {fileID: 3692996368791510855}
   - component: {fileID: 6967749988041130846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 6048970999318696336}
   - component: {fileID: 2960645329637496662}
   - component: {fileID: 8855220560238136141}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.003_cell.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 6048970998579061643}
   - component: {fileID: 3163948424076587785}
   - component: {fileID: 8654468533296656148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.003_cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 6048970999263497047}
   - component: {fileID: 4337835479166876156}
   - component: {fileID: 8052811555414173159}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 6048970999477788272}
   - component: {fileID: 3625834999170446839}
   - component: {fileID: 7035694279502014958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.003_cell.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 6048971000035175992}
   - component: {fileID: 2522538083621816249}
   - component: {fileID: 8139016174544411556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.003_cell.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 6859873672370410322}
   - component: {fileID: 6859873672370410333}
   - component: {fileID: 6859873672370410323}
+  - component: {fileID: 3337772397281562422}
   m_Layer: 8
   m_Name: Mesh_brokenglass
   m_TagString: Untagged
@@ -1217,7 +1218,7 @@ Transform:
   - {fileID: 6048970998730923389}
   - {fileID: 6048971000364694727}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6859873672370410322
 BoxCollider:
@@ -1248,7 +1249,19 @@ MonoBehaviour:
   beakedModel: {fileID: 6048971000364694726}
   onGlassBreak:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3337772397281562422}
+        m_TargetAssemblyTypeName: Pathfinding.DynamicGridObstacle, AstarPathfindingProject
+        m_MethodName: DoUpdateGraphs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   glassPiecesRB: []
 --- !u!114 &6859873672370410323
 MonoBehaviour:
@@ -1263,6 +1276,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: New Entity
+--- !u!114 &3337772397281562422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859873672370410332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 1235285079273041467
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &7302920847144656270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1307,7 @@ GameObject:
   - component: {fileID: 6048970998932529380}
   - component: {fileID: 3269450764337684708}
   - component: {fileID: 9128003932427566335}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1451,7 @@ GameObject:
   - component: {fileID: 6048971000035175996}
   - component: {fileID: 7500206556126952536}
   - component: {fileID: 4315668020565123139}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1595,7 @@ GameObject:
   - component: {fileID: 6048971000431607895}
   - component: {fileID: 2992004724986474765}
   - component: {fileID: 8824802795142475032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh_Wall_01.001_cell.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
