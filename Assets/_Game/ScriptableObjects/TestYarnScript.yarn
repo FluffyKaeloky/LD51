@@ -1,0 +1,22 @@
+﻿title: Start
+tags:
+---
+<<l_character MrFox>>
+<<r_character Girl>>
+
+<<r_character_come_in>>
+<<l_character_come_in>>
+
+MrFox: This is a test
+Girl: I know right !
+MrFox: This. Is. The. Pacing. . . TEST !!!?!, boop.
+
+<<no_wait>>
+MrFox: This next line won't be awaited.
+
+Girl: Wow !
+
+Girl: This line should be awaited.
+
+Girl: End Test.
+===
