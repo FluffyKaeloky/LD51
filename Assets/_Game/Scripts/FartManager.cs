@@ -26,17 +26,16 @@ public class FartManager : MonoBehaviour
     public UnityEvent onFart = new UnityEvent();
     public UnityEvent onHoldIt = new UnityEvent();
 
-
-
     private void Start()
     {
         sliderFillImage.color = startColor;
         noFartTime = Time.time + 5;
     }
 
-
     private void Update()
     {
+        if (GameManager.Instance.CurrentGameState != GameManager.GameStates.Game)
+            return;
 
         if (noFartTime <= Time.time)
         {
@@ -60,12 +59,14 @@ public class FartManager : MonoBehaviour
 
     public void RefrainFart()
     {
+        if (GameManager.Instance.CurrentGameState != GameManager.GameStates.Game)
+            return;
+
         if (fartSlider != null)
         {
             fartSlider.value -= refrainFartValue;
             onHoldIt?.Invoke();
         }
-    
     }
 
 

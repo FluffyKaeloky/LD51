@@ -14,8 +14,6 @@ public class PlayerInput : InputBase
     public string holdItInputName = "HoldIt";
     public string interactInputName = "Interact";
 
-
-
     private Player player = null;
     private Pawn pawn = null;
     private FartManager fartManager;
@@ -32,6 +30,9 @@ public class PlayerInput : InputBase
 
     private void Update()
     {
+        if (GameManager.Instance.CurrentGameState != GameManager.GameStates.Game)
+            return;
+
         horizontalInput = player.GetAxis(horizontalInputName);
         verticalInput = player.GetAxis(verticalInputName);
 
@@ -49,6 +50,9 @@ public class PlayerInput : InputBase
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.CurrentGameState != GameManager.GameStates.Game)
+            return;
+
         Vector2 input = new Vector2(horizontalInput, verticalInput).normalized;
 
         pawn.Move(input.x, input.y);

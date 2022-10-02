@@ -47,6 +47,9 @@ public class AlertnessManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.CurrentGameState != GameManager.GameStates.Game)
+            return;
+
         if (HasPlayerLOS)
         {
             /*if (AlertState == AlertStates.Alerted)
