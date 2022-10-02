@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput = null;
 
+    public CinemachineVirtualCamera mainCamera = null;
 
     private void Awake()
     {
@@ -22,10 +24,5 @@ public class LevelManager : MonoBehaviour
     public void Win()
     {
         print("gg you win");
-    }
-
-    public void Loose()
-    {
-        print("Oh no you loos");
     }
 }
