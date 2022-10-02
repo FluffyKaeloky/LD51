@@ -81,11 +81,11 @@ public class FartManager : MonoBehaviour
         instance.force = fartWillValue * 5;
         instance.onEntityHit.AddListener((x) => 
         {
+            Debug.Log("entredansleif");
 
             if (fartPower >= breakGlassValue)
             {
-
-                x.Entity.GetComponent<GlassObject>()?.BreakGlass();
+                x.Entity.GetComponent<GlassObject>()?.BreakGlass(fartPower,transform.position);
             }
         });
 
