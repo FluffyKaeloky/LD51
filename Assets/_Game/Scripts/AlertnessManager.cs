@@ -57,6 +57,7 @@ public class AlertnessManager : MonoBehaviour
             if (alertness >= alertTime && AlertState != AlertStates.Chasing)
             {
                 AlertState = AlertStates.Chasing;
+                AlertedNotifier.Instance.PushChaseAlert(this);
                 DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius + (alertRangeGain * x); }, 0.0f, 1.0f, 1.0f);
             }
 
@@ -82,9 +83,12 @@ public class AlertnessManager : MonoBehaviour
     {
         AlertStates oldState = AlertState;
         AlertState = AlertStates.NoAlert;
-        
+
         if (oldState == AlertStates.Chasing)
+        {
             DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius - (alertRangeGain * (1.0f - x)); }, 0.0f, 1.0f, 1.0f);
+            AlertedNotifier.Instance.DropChaseAlert(this);
+        }
     }
 
     public void BecomeAlerted(Vector3? source)
