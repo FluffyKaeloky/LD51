@@ -96,6 +96,9 @@ public class Pawn : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (targetRotation.magnitude == 0.0f)
+            return;
+
         Quaternion qTargetRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(new Vector3(targetRotation.x, transform.position.y, targetRotation.y), Vector3.up).normalized);
 
         Quaternion newRot = Quaternion.Slerp(transform.rotation, qTargetRotation, Time.fixedDeltaTime * rotationSlerpFactor);

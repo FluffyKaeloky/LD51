@@ -8,11 +8,11 @@ using UnityEngine;
 
 public class AIAlertAgentsAround : ActionTask
 {
-    public float radius = 10.0f;
+    public BBParameter<float> radius = 20.0f;
 
     protected override void OnExecute()
     {
-        Physics.OverlapSphere(agent.transform.position, radius)
+        Physics.OverlapSphere(agent.transform.position, radius.value)
             .Select(x => x.GetComponentInParent<AlertnessManager>())
             .Distinct()
             .NotNull()

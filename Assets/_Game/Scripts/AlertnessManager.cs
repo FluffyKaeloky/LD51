@@ -30,6 +30,8 @@ public class AlertnessManager : MonoBehaviour
 
     public float alertRangeGain = 5.0f;
 
+    public bool reactToAlerts = true;
+
     public float Alertness { get => alertness; }
     private float alertness = 0.0f;
     private float lastSeenTime = 0.0f;
@@ -87,6 +89,9 @@ public class AlertnessManager : MonoBehaviour
 
     public void BecomeAlerted(Vector3? source)
     {
+        if (!reactToAlerts)
+            return;
+
         if (AlertState != AlertStates.NoAlert)
             return;
 
