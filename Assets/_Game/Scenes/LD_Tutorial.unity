@@ -113353,6 +113353,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIDialogueRunner
       objectReference: {fileID: 0}
+    - target: {fileID: 3838915459250826978, guid: f7a91a6d5299abc49bda02778c0417af,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.4504717
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838915459250826978, guid: f7a91a6d5299abc49bda02778c0417af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.4743514
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838915459250826978, guid: f7a91a6d5299abc49bda02778c0417af,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a91a6d5299abc49bda02778c0417af, type: 3}
