@@ -82,20 +82,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (currentLevelIndex == 0)
-        {
-            currentLevelIndex = sceneIndexes[0];
-        }
-        else
-        {
-            currentLevelIndex++;           
-        }
-
         CurrentGameState = GameStates.Loading;
 
         screenFader.FadeIn(() => 
         {
-            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex - 3]));
+            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex]));
         });
     }
 
@@ -142,7 +133,7 @@ public class GameManager : MonoBehaviour
 
         screenFader.FadeIn(() =>
         {
-            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex - 3]));
+            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex]));
         });
     }
 }
