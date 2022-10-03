@@ -20,7 +20,8 @@ public class AlertedNotifier : MonoBehaviour
         if (!chasingManagers.Contains(instigator))
         {
             chasingManagers.Add(instigator);
-            BGMManager.Instance.SetMixerState(0.0f, 1.0f, 0.0f, 1.0f);
+            if (BGMManager.Instance != null)
+                BGMManager.Instance.SetMixerState(0.0f, 1.0f, 0.0f, 1.0f);
         }
     }
 
@@ -29,7 +30,7 @@ public class AlertedNotifier : MonoBehaviour
         if (chasingManagers.Contains(instigator))
         {
             chasingManagers.Remove(instigator);
-            if (chasingManagers.Count == 0)
+            if (chasingManagers.Count == 0 && BGMManager.Instance != null)
                 BGMManager.Instance.SetMixerState(1.0f, 0.0f, 0.0f, 1.0f);
         }
     }
