@@ -87,6 +87,8 @@ public class GameManager : MonoBehaviour
         screenFader.FadeIn(() => 
         {
             StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex]));
+            currentLevelIndex++;
+
         });
     }
 
