@@ -9,6 +9,8 @@ public class PawnAnimator : MonoBehaviour
     public string walkSpeedParameterName = "Walk";
     public Animator animator = null;
 
+    public bool canBeKilled = false;
+
     private Pawn pawn = null;
     private AlertedNotifier chaseNotifier = null;
 
@@ -19,6 +21,15 @@ public class PawnAnimator : MonoBehaviour
     {
         pawn = GetComponent<Pawn>();
         chaseNotifier = GetComponent<AlertedNotifier>();
+    }
+
+    private void Start()
+    {
+        LevelManager.Instance.onLoss.AddListener(() => 
+        {
+            if (canBeKilled)
+                animator.SetTrigger("Death"); 
+        });
     }
 
     private void Update()

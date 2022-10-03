@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; } = null;
+
+    public UnityEvent onLoss = new UnityEvent();
 
     public PlayerInput PlayerInput { get => playerInput; }
     [SerializeField]
@@ -26,8 +29,16 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.LoadNextLevel();
     }
 
-    public void Loose()
+    public async void Loose()
     {
+        if (GameManager.Instance.CurrentGameState != GameManager.GameStates.Game)
+            return;
+
+        onLoss?.Invoke();
+        GameManager.Instance.CurrentGameState = GameManager.GameStates.Outro;
+
+        await new WaitForSeconds(1.0f);
+
         GameManager.Instance.GameOver();
     }
 }

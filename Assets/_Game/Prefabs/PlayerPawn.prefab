@@ -387,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeedParameterName: Walk
   animator: {fileID: 5866666021747692777}
+  canBeKilled: 1
 --- !u!114 &1789304917
 MonoBehaviour:
   m_ObjectHideFlags: 0
