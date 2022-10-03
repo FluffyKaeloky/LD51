@@ -16,7 +16,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: ee5984212cf5a114fbcbd40345621330, type: 3}
   avoidPlayingSameClipTwice: 0
-  volume: 1
+  volume: 0.5
   spread: 360
   pitch: 1
   spatialMode2D: 0
