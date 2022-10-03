@@ -97,6 +97,11 @@ public class GameManager : MonoBehaviour
         });
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private IEnumerator LoadSceneInternal(int sceneIndex)
     {
         AsyncOperation op = SceneManager.LoadSceneAsync(loadingSceneIndex);
