@@ -1,0 +1,23 @@
+﻿title: TutoIntro
+tags:
+---
+<<l_character MrFox>>
+<<r_character Girl>>
+
+<<l_character_come_in>>
+
+MrFox: Pfew, made it in. If they think they'll be able to steal my girlfriend and get away with it, they have another thing coming !
+MrFox: I gotta be careful around all thoses guards. I don't really have a way to defend myself ...
+
+<<switch_camera 0>>
+MrFox: Pesky cameras. While they are not really dangerous by themselves, they will attract nearby enemies toward me.
+
+<<switch_camera 1>>
+MrFox: Glass windows ... I should be able to find a way to break them. Some kind of shockwave should do.
+
+<<switch_camera 2>>
+MrFox: The door will be locked. I also need to find a way to unlock that ...
+
+<<switch_camera -1>>
+MrFox: ... urgh ... What is wrong with me ? Ever since I got here, I feel sick ...
+===
