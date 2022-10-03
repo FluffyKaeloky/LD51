@@ -53,9 +53,12 @@ public class PawnMoveTo : ActionTask
         }    
 
         ABPath path = ABPath.Construct(pawn.transform.position, target.value);
-        await seeker.StartPath(path);
-                
-        if (path.error)
+        bool isDone = false;
+        seeker.StartPath(path, (x) => { isDone = true; });
+
+        await new WaitUntil(() => isDone);
+        
+        if (path.error || path.CompleteState == PathCompleteState.Partial)
         {
             EndAction(false);
             return;
