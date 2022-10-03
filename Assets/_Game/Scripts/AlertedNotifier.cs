@@ -18,12 +18,19 @@ public class AlertedNotifier : MonoBehaviour
     public void PushChaseAlert(AlertnessManager instigator)
     {
         if (!chasingManagers.Contains(instigator))
+        {
             chasingManagers.Add(instigator);
+            BGMManager.Instance.SetMixerState(0.0f, 1.0f, 0.0f, 1.0f);
+        }
     }
 
     public void DropChaseAlert(AlertnessManager instigator)
     {
         if (chasingManagers.Contains(instigator))
+        {
             chasingManagers.Remove(instigator);
+            if (chasingManagers.Count == 0)
+                BGMManager.Instance.SetMixerState(1.0f, 0.0f, 0.0f, 1.0f);
+        }
     }
 }

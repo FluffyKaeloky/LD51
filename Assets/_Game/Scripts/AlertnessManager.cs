@@ -111,12 +111,13 @@ public class AlertnessManager : MonoBehaviour
         if (AlertState != AlertStates.NoAlert)
             return;
 
-        AlertState = AlertStates.Alerted;
-        onAlerted?.Invoke();
         if (source == null)
             LastKnownPlayerLocation = LevelManager.Instance.PlayerInput.transform.position;
         else
             LastKnownPlayerLocation = source.Value;
+
+        AlertState = AlertStates.Alerted;
+        onAlerted?.Invoke();
     }
 
     public void BecomeAlerted() =>
