@@ -4,9 +4,23 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class FartManager : MonoBehaviour
 {
+    [Serializable]
+    public class OnFartEvent : UnityEvent<OnFartEventArgs> { }
+    [Serializable]
+    public class OnFartEventArgs
+    {
+        public float FartMultiplier { get; private set; } = 0.0f;
+
+        public OnFartEventArgs(float fartMultiplier)
+        {
+            FartMultiplier = fartMultiplier;
+        }
+    }
+
     [SerializeField] private Slider fartSlider;
     [SerializeField] private Image sliderFillImage;
     [SerializeField] private Color lerpedColor, startColor, endColor;
@@ -18,12 +32,12 @@ public class FartManager : MonoBehaviour
 
     [SerializeField] private float willValueSpeed;
     [SerializeField] private AnimationCurve fartWillCurve;
-    [SerializeField] private float breakGlassValue;
+    [SerializeField] public float breakGlassValue;
     [SerializeField] private LayerMask glassMask;
 
     private float noFartTime;
     public FartShockwave fartShockwavePrefab;
-    public UnityEvent onFart = new UnityEvent();
+    public OnFartEvent onFart = new OnFartEvent();
     public UnityEvent onHoldIt = new UnityEvent();
 
     private void Start()
@@ -82,12 +96,8 @@ public class FartManager : MonoBehaviour
         instance.force = fartWillValue * 5;
         instance.onEntityHit.AddListener((x) => 
         {
-            Debug.Log("entredansleif");
-
             if (fartPower >= breakGlassValue)
-            {
                 x.Entity.GetComponent<GlassObject>()?.BreakGlass(fartPower,transform.position);
-            }
         });
 
         /*//BreakGlass
@@ -100,7 +110,7 @@ public class FartManager : MonoBehaviour
             }
         }*/
 
-        onFart?.Invoke();
+        onFart?.Invoke(new OnFartEventArgs(fartPower));
 
 
         //resetFart

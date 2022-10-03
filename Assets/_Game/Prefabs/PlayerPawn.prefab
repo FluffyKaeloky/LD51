@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 1789304912}
   - component: {fileID: 1789304916}
   - component: {fileID: 1789304917}
-  - component: {fileID: 3352377073554680557}
+  - component: {fileID: 7111802374697675856}
   m_Layer: 6
   m_Name: PlayerPawn
   m_TagString: Player
@@ -252,7 +252,7 @@ Transform:
   - {fileID: 3096466635757040252}
   - {fileID: 1066883723}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3096466635401670105
 Rigidbody:
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443abe3ddb47f0c4a9bf44627926879d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3352377073554680557
+--- !u!114 &7111802374697675856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -408,10 +408,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096466635401670111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef191a33125a2614ab3c73f0512dab93, type: 3}
+  m_Script: {fileID: 11500000, guid: f2696c6ed660a2b4f9febe65b4e88625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Player
+  lowSFX: {fileID: 11400000, guid: c7450cd0b04d11c4c84731a848e7abe3, type: 2}
+  mediumSFX: {fileID: 11400000, guid: b7a9b1cf216bfe74291893721a5a69fe, type: 2}
+  highSFX: {fileID: 11400000, guid: 3eba7e0bb33276f4fbeecfa7a0026130, type: 2}
+  highThreshold: 1.4
 --- !u!1 &3096466635757040243
 GameObject:
   m_ObjectHideFlags: 0
