@@ -194,6 +194,14 @@ public class UIRGDialogueView : DialogueViewBase
         vcam.Priority = 99;
     }
 
+    [YarnCommand("continue_timeline")]
+    private static void ContinueTimeline(int index)
+    {
+        PlayableDirector director = Instance.playableDirectors[index];
+        //director.Resume();
+        director.playableGraph.GetRootPlayable(0).SetSpeed(1.0f);
+    }
+
     public void ContinueSignal()
     {
         waitingForSignal = false;
