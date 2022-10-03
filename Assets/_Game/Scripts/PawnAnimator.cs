@@ -13,6 +13,7 @@ public class PawnAnimator : MonoBehaviour
     private AlertedNotifier chaseNotifier = null;
 
     private bool wasBeingChased = false;
+    private bool currentChaseState = false;
 
     private void Awake()
     {
@@ -24,24 +25,28 @@ public class PawnAnimator : MonoBehaviour
     {
         animator.SetFloat(walkSpeedParameterName, pawn.RawInput.magnitude);
 
-        if (chaseNotifier != null)
+        bool chaseState = chaseNotifier == null ? currentChaseState : chaseNotifier.IsBeingChased;
+
+        if (chaseState && !wasBeingChased)
         {
-            if (chaseNotifier.IsBeingChased && !wasBeingChased)
-            {
-                this.DOKill();
-                DOTween.To(x => { animator.SetLayerWeight(1, x); }, animator.GetLayerWeight(1), 1.0f, 0.5f)
-                    .SetTarget(this);
+            this.DOKill();
+            DOTween.To(x => { animator.SetLayerWeight(1, x); }, animator.GetLayerWeight(1), 1.0f, 0.5f)
+                .SetTarget(this);
 
-                wasBeingChased = true;
-            }
-            else if (!chaseNotifier.IsBeingChased && wasBeingChased)
-            {
-                this.DOKill();
-                DOTween.To(x => { animator.SetLayerWeight(1, x); }, animator.GetLayerWeight(1), 0.0f, 0.5f)
-                    .SetTarget(this);
-
-                wasBeingChased = false;
-            }
+            wasBeingChased = true;
         }
+        else if (!chaseState && wasBeingChased)
+        {
+            this.DOKill();
+            DOTween.To(x => { animator.SetLayerWeight(1, x); }, animator.GetLayerWeight(1), 0.0f, 0.5f)
+                .SetTarget(this);
+
+            wasBeingChased = false;
+        }
+    }
+
+    public void SetAlertState(bool alerted)
+    {
+        currentChaseState = alerted;
     }
 }

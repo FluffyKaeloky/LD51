@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EnemyPawnAnimatorController
+  m_Controller: {fileID: 9100000, guid: 6b816e61e9155e94da9f41f1ae9398e4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 3fc336241d8ebf94cac0a22a3b9666fb,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 95632274dfef32d409a64929cfb1cbef,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 4e9388001ac481f489bab15e34f7b0ef,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 4e9388001ac481f489bab15e34f7b0ef,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 620ec3547304b1741ab4a66bfcfa60ea,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 620ec3547304b1741ab4a66bfcfa60ea,
+      type: 3}

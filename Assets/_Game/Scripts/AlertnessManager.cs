@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Experimental.AI;
 
 public class AlertnessManager : MonoBehaviour
 {
@@ -31,6 +33,9 @@ public class AlertnessManager : MonoBehaviour
     public float alertRangeGain = 5.0f;
 
     public bool reactToAlerts = true;
+
+    public UnityEvent onChase = new UnityEvent();
+    public UnityEvent onChaseEnd = new UnityEvent();
 
     public float Alertness { get => alertness; }
     private float alertness = 0.0f;
@@ -61,6 +66,7 @@ public class AlertnessManager : MonoBehaviour
             {
                 AlertState = AlertStates.Chasing;
                 AlertedNotifier.Instance.PushChaseAlert(this);
+                onChase?.Invoke();
                 DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius + (alertRangeGain * x); }, 0.0f, 1.0f, 1.0f);
             }
 
@@ -91,6 +97,7 @@ public class AlertnessManager : MonoBehaviour
         {
             DOTween.To(x => { fieldOfView.viewRadius = baseFovRadius - (alertRangeGain * (1.0f - x)); }, 0.0f, 1.0f, 1.0f);
             AlertedNotifier.Instance.DropChaseAlert(this);
+            onChaseEnd?.Invoke();
         }
     }
 
