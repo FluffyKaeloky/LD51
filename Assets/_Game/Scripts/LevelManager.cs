@@ -23,11 +23,11 @@ public class LevelManager : MonoBehaviour
 
     public void Win()
     {
-        Debug.LogAssertion("YouWin");
+        GameManager.Instance.LoadNextLevel();
     }
 
     public void Loose()
     {
-        Debug.LogAssertion("OhNoYouLoose");
+        GameManager.Instance.GameOver();
     }
 }
