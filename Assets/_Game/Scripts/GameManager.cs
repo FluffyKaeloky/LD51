@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
         screenFader.FadeIn(() => 
         {
-            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex-2]));
+            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex-3]));
         });
     }
 
@@ -133,5 +133,13 @@ public class GameManager : MonoBehaviour
         screenFader.SnapTo(1.0f);
 
         screenFader.FadeOut(() => CurrentGameState = GameStates.Intro);
+    }
+
+    public void GameOver()
+    {
+        if (currentLevelIndex == 0)
+        {
+            LoadSceneInternal(currentLevelIndex);
+        }      
     }
 }
