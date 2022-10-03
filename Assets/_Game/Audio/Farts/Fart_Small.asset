@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5964cc3812b9994c88253207dc4938a, type: 3}
   - {fileID: 8300000, guid: c66d074ec1c42fe44a9e15fb199ab394, type: 3}
   avoidPlayingSameClipTwice: 0
-  volume: 0.2
+  volume: 0.5
   spread: 360
   pitch: 1
   spatialMode2D: 0
