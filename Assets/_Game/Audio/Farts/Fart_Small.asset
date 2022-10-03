@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5964cc3812b9994c88253207dc4938a, type: 3}
   - {fileID: 8300000, guid: c66d074ec1c42fe44a9e15fb199ab394, type: 3}
   avoidPlayingSameClipTwice: 0
-  volume: 0.5
+  volume: 0.2
   spread: 360
   pitch: 1
   spatialMode2D: 0
@@ -63,5 +63,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   mixerGroup: {fileID: 5013685071259586928, guid: 959439f22e91735468932596af314132,
     type: 2}
-  spatialize: 0
+  spatialize: 1
   isBGM: 0

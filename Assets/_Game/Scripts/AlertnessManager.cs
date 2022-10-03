@@ -37,6 +37,8 @@ public class AlertnessManager : MonoBehaviour
     public UnityEvent onChase = new UnityEvent();
     public UnityEvent onChaseEnd = new UnityEvent();
 
+    public UnityEvent onAlerted = new UnityEvent();
+
     public float Alertness { get => alertness; }
     private float alertness = 0.0f;
     private float lastSeenTime = 0.0f;
@@ -110,6 +112,7 @@ public class AlertnessManager : MonoBehaviour
             return;
 
         AlertState = AlertStates.Alerted;
+        onAlerted?.Invoke();
         if (source == null)
             LastKnownPlayerLocation = LevelManager.Instance.PlayerInput.transform.position;
         else

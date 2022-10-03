@@ -60,5 +60,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   mixerGroup: {fileID: 5013685071259586928, guid: 959439f22e91735468932596af314132,
     type: 2}
-  spatialize: 0
+  spatialize: 1
   isBGM: 0
