@@ -12,7 +12,7 @@ tags:
 <<play_timeline 0>>
 
 MafiaBoss: ... What do you mean he's still running ?
-MafiaBoss: Bunch of incompetent ... I swe- what now ?
+MafiaBoss: Bunch of incompetents ... I swe- what now ?
 MafiaBoss: Oh.
 
 MrFox: Finally ! You're gonna pay for what you've done !
@@ -24,7 +24,7 @@ MafiaBoss: Bring it !
 <<no_wait>>
 MafiaBoss: QUACK- !
 
-<<wait 1>>
+<<wait 2>>
 
 <<r_character_come_out>>
 
