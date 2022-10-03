@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
             currentGameState = value;
 
             onGameStateChanged.Invoke(new OnGameStateChangedArgs(oldGameState, value));
+            Debug.Log("Game state changed : " + currentGameState);
         }
     }
     private GameStates currentGameState = GameStates.Intro;
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour
 
         screenFader.FadeIn(() => 
         {
-            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex-3]));
+            StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex - 3]));
         });
     }
 
