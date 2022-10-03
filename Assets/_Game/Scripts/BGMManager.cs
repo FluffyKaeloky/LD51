@@ -33,8 +33,8 @@ public class BGMManager : MonoBehaviour
 
     public void SetMixerState(float sneak, float chase, float menu, float duration)
     {
-        mixer.DOSetFloat("SneakAttenuation", Mathf.Lerp(-40.0f, 0.0f, sneak), duration);
-        mixer.DOSetFloat("ChaseAttenuation", Mathf.Lerp(-40.0f, 0.0f, chase), duration);
-        mixer.DOSetFloat("MenuAttenuation", Mathf.Lerp(-40.0f, 0.0f, menu), duration);
+        mixer.DOSetFloat("SneakAttenuation", Mathf.Lerp(-60.0f, 0.0f, sneak), duration);
+        mixer.DOSetFloat("ChaseAttenuation", Mathf.Lerp(-60.0f, 0.0f, chase), duration);
+        mixer.DOSetFloat("MenuAttenuation", Mathf.Lerp(-60.0f, 0.0f, menu), duration);
     }
 }
