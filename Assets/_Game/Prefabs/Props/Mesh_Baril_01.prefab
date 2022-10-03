@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 565304093405132305}
   - component: {fileID: 3492407949009336756}
   - component: {fileID: 1698826619418004862}
-  - component: {fileID: 5243028852354911719}
+  - component: {fileID: 705914536735980339}
   m_Layer: 0
   m_Name: Mesh_Baril_01
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3492407949009336756
 MeshFilter:
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5243028852354911719
-MeshCollider:
+--- !u!65 &705914536735980339
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2881961285417976050, guid: e55803d9d6f133f42977d523cc2c26e7, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.6434601, z: 0.5}
+  m_Center: {x: 0, y: 0.3216364, z: 0}
