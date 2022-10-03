@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5191722ed197a4c4db80a884d8c4ee5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
+  moveSpeed: 2.8
   maxGroundSlope: 45
   downForce: 10
   airControlMultiplier: 0.5
@@ -483,6 +483,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onAlerted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &50660084
 MonoBehaviour:
   m_ObjectHideFlags: 0
