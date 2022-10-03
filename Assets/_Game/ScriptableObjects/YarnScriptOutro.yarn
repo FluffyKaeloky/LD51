@@ -1,0 +1,39 @@
+﻿title: Outro
+tags:
+---
+<<l_character MrFox>>
+<<r_character MafiaBoss>>
+
+<<l_character_come_in>>
+<<r_character_come_in>>
+
+<<switch_camera 0>>
+
+<<play_timeline 0>>
+
+MafiaBoss: ... What do you mean he's still running ?
+MafiaBoss: Bunch of incompetent ... I swe- what now ?
+MafiaBoss: Oh.
+
+MrFox: Finally ! You're gonna pay for what you've done !
+MafiaBoss: Bring it !
+
+<<continue_timeline 0>>
+<<wait_signal>>
+
+<<no_wait>>
+MafiaBoss: QUACK- !
+
+<<wait 1>>
+
+<<r_character_come_out>>
+
+<<wait_signal>>
+
+<<r_character Girl>>
+<<r_character_come_in>>
+
+Girl: You came !
+MrFox: Of course. Let us go home now ...
+
+===

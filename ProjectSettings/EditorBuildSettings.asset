@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/LD_MapTuto_Final.unity
     guid: 971d80d7660b0614ea4734fa4c6a827b
+  - enabled: 1
+    path: Assets/_Game/Scenes/LD_Map_1.unity
+    guid: 8cfbd79aeb412014c97755dd871e1089
+  - enabled: 1
+    path: Assets/_Game/Scenes/LD_map_02.unity
+    guid: 36cd675091e08514e9dacfe944108690
   m_configObjects: {}
