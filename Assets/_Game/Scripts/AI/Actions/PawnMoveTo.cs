@@ -64,14 +64,12 @@ public class PawnMoveTo : ActionTask
         vectorPath = new Queue<Vector3>(path.vectorPath);
         /*if (vectorPath.Count > 1)
             vectorPath.Dequeue();*/
-        currentAcceleration = 0.0f;
+        currentAcceleration = Mathf.Clamp01(pawn.Velocity.magnitude / pawn.moveSpeed);
 
         MonoManager.current.onFixedUpdate += OnFixedUpdate;
 
         foreach (Vector3 v in vectorPath)
-        {
             DebugExtension.DebugWireSphere(v, Color.red, 1.0f, 5.0f);
-        }
     }
 
     protected override void OnStop()

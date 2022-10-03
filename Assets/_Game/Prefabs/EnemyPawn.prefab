@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 3461588668457224851}
   - component: {fileID: 3461588668457224852}
   - component: {fileID: 3461588668457224853}
+  - component: {fileID: 211870763}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -203,10 +204,22 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: d000b286f88867140a44161fad429fc3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &211870763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668457224855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61458a07662d564ba8bf28bda1ab341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3461588668608199992
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3461588668608199991}
+  - component: {fileID: 1792295912}
   m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
@@ -241,6 +255,24 @@ Transform:
   m_Father: {fileID: 3461588668898747027}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792295912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668608199992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 0.19939679, b: 0.15566039, a: 1}
+  outlineWidth: 1
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3461588668898747028
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +286,6 @@ GameObject:
   - component: {fileID: 3461588668898747024}
   - component: {fileID: 8706592987680708049}
   - component: {fileID: 8706592987680708048}
-  - component: {fileID: 8706592987680708050}
   - component: {fileID: 8706592987680708051}
   - component: {fileID: 50660082}
   - component: {fileID: 50660083}
@@ -264,6 +295,8 @@ GameObject:
   - component: {fileID: 8542468348105650672}
   - component: {fileID: 2284261148140382623}
   - component: {fileID: 1842314167716696761}
+  - component: {fileID: 3964702706424422622}
+  - component: {fileID: 1575146563}
   m_Layer: 6
   m_Name: EnemyPawn
   m_TagString: Untagged
@@ -376,21 +409,6 @@ MonoBehaviour:
   - _json: '{"_name":"AlignAtTransformForwardPatrol","_id":"3cf975d9-5f07-4a9a-9a75-3581f85afd59","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
---- !u!114 &8706592987680708050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3461588668898747028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  unwrap: 1
-  splitAtEveryPortal: 0
 --- !u!114 &8706592987680708051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,11 +455,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   thickRaycast: 1
-  thickRaycastRadius: 0.25
+  thickRaycastRadius: 0.12
   use2DPhysics: 0
-  raycastOffset: {x: 0, y: 0, z: 0}
+  raycastOffset: {x: 0, y: 0.5, z: 0}
   useGraphRaycasting: 0
-  quality: 1
+  quality: 2
 --- !u!114 &50660083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +603,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeedParameterName: Walk
   animator: {fileID: 649426420270180243}
+--- !u!114 &3964702706424422622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 0
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1
+--- !u!114 &1575146563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461588668898747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ffa084e9f3d48b59e691352d40eb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  radius: 0.25
+  detail: 10
 --- !u!1 &3461588669487188400
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,11 +58,6 @@ public class GameManager : MonoBehaviour
 
     private UIScreenFader screenFader = null;
 
-    private void Start()
-    {
-        screenFader.FadeOut();
-    }
-
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -76,6 +71,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         screenFader = GetComponentInChildren<UIScreenFader>();
+    }
+
+    private void Start()
+    {
+        if (screenFader != null)
+            screenFader.FadeOut();
     }
 
     public void LoadNextLevel()
@@ -130,7 +131,6 @@ public class GameManager : MonoBehaviour
             yield return null;
 
         screenFader.SnapTo(1.0f);
-
 
         screenFader.FadeOut(() => CurrentGameState = GameStates.Intro);
     }

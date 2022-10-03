@@ -23,7 +23,7 @@ public class PawnAnimator : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat(walkSpeedParameterName, pawn.RawInput.magnitude);
+        animator.SetFloat(walkSpeedParameterName, Mathf.Clamp01(pawn.Velocity.magnitude / pawn.moveSpeed));
 
         bool chaseState = chaseNotifier == null ? currentChaseState : chaseNotifier.IsBeingChased;
 

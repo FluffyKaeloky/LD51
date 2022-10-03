@@ -23,7 +23,7 @@ public class Pawn : MonoBehaviour
 
     public float rotationSlerpFactor = 1.0f;
 
-    public Vector2 Velocity { get; private set; } = Vector2.zero;
+    public Vector3 Velocity { get; private set; } = Vector2.zero;
     public Vector2 RawInput { get; private set; } = Vector2.zero;
 
     private new Rigidbody rigidbody = null;
@@ -33,9 +33,16 @@ public class Pawn : MonoBehaviour
 
     private Vector2 targetRotation = Vector2.zero;
 
+    private bool moveCalledThisFrame = false;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        oldPos = transform.position;
     }
 
     public void Move(float horizontalInput, float verticalInput)
@@ -62,7 +69,6 @@ public class Pawn : MonoBehaviour
 
         Vector3 newPos = transform.position + groundNormalModifier * new Vector3(horizontalInput, 0.0f, verticalInput) * moveSpeed * Time.fixedDeltaTime;
 
-        Velocity = (newPos - oldPos) * (1.0f / Time.deltaTime);
         RawInput = new Vector2(horizontalInput, verticalInput);
 
         //Gravity
@@ -86,6 +92,8 @@ public class Pawn : MonoBehaviour
             rigidbody.MoveRotation(newRot);
         }*/
 
+        moveCalledThisFrame = true;
+
         Debug.DrawLine(transform.position, transform.position + (newPos - oldPos).normalized, Color.red);
         Debug.DrawLine(transform.position, transform.position - groundNormal, Color.blue);
     }
@@ -98,7 +106,8 @@ public class Pawn : MonoBehaviour
         targetRotation = direction.normalized;
     }
 
-    private void FixedUpdate()
+    private Vector3 oldPos = Vector3.zero;
+    private async void FixedUpdate()
     {
         if (targetRotation.magnitude == 0.0f)
             return;
@@ -108,6 +117,18 @@ public class Pawn : MonoBehaviour
         Quaternion newRot = Quaternion.Slerp(transform.rotation, qTargetRotation, Time.fixedDeltaTime * rotationSlerpFactor);
 
         rigidbody.MoveRotation(newRot);
+
+        //await new WaitForEndOfFrame();
+
+        Velocity = (transform.position - oldPos) * (1.0f / Time.fixedDeltaTime);
+
+        rigidbody.velocity = Vector2.zero;
+
+        if (!moveCalledThisFrame)
+            RawInput = Vector2.zero;
+        moveCalledThisFrame = false;
+
+        oldPos = transform.position;
     }
 
     private void OnCollisionEnter(Collision collision)

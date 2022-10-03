@@ -43,7 +43,7 @@ public class PawnSeek : ActionTask
         if (!success)
             oldPosition = Vector3.positiveInfinity;
 
-        currentAcceleration = 0.0f;
+        currentAcceleration = Mathf.Clamp01(pawn.Velocity.magnitude / pawn.moveSpeed);
 
         MonoManager.current.onFixedUpdate += OnFixedUpdate;
     }
