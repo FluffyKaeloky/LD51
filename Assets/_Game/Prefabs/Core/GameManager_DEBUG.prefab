@@ -1,0 +1,530 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2030583119165382772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030583119165382773}
+  - component: {fileID: 795817674}
+  m_Layer: 0
+  m_Name: ChaseBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030583119165382773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583119165382772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030583119375805119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795817674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583119165382772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6214d9bea85c048448741528c759aa86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioObject: {fileID: 11400000, guid: 0910886b0bded82468b9449c3a76bf86, type: 2}
+  defaultChannel: -1
+  masterVolume: 1
+  overrideMasterVolume: 0
+  masterVolumeOverride: 1
+  playUpdateMode: 1
+  overridePlayUpdateMode: 0
+  playUpdateModeOverride: 1
+  TargetToFollow: {fileID: 0}
+  Mute: 0
+  OverrideValues: 0
+  overrideRandomVolumeMultiplier: 0
+  randomVolumeMultiplier: 1
+  overrideRandomPitchMultiplier: 0
+  randomPitchMultiplier: 1
+  overrideAudioClip: 0
+  audioClipOverride: {fileID: 0}
+  overrideVolume: 0
+  volumeOverride: 1
+  overridePitch: 0
+  pitchOverride: 1
+  overrideSpatialMode: 0
+  spatialMode2DOverride: 0
+  overrideStereoPan: 0
+  stereoPanOverride: 0
+  overrideSpread: 0
+  spreadOverride: 0
+  overrideDopplerLevel: 0
+  dopplerLevelOverride: 0.25
+  overrideReverbZone: 0
+  reverbZoneMixOverride: 1
+  overrideDistance: 0
+  minDistanceOverride: 1
+  maxDistanceOverride: 20
+  overrideMixerGroup: 0
+  mixerGroupOverride: {fileID: 0}
+  occludeSound: 0
+  overrideOccludeSound: 0
+  occludeSoundOverride: 0
+  delay: 0
+  delayUpdateMode: 0
+  overrideDelayUpdateMode: 0
+  delayUpdateModeOverride: 0
+  overrideVolumeRolloff: 0
+  volumeRolloffOverride: 0
+  volumeRolloffCurveOverride:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  NormalizedLength: 1
+  overrideSpatialize: 0
+  spatializeOverride: 0
+  playOnStart: 1
+  fadeInOnStart: 0
+  fadeInOnStartTime: 1
+  ignoreListenerPause: 0
+  overrideIgnoreListenerPause: 0
+  ignoreListenerPauseOverride: 0
+  persistsBetweenScenes: 0
+  paused: 0
+  overridePaused: 0
+  pausedOverride: 0
+  StartDistance: 0
+  outOfRange: 0
+  scene:
+    m_Handle: 0
+  init: 0
+  OnPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOutOfRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoop:
+    m_PersistentCalls:
+      m_Calls: []
+  callbacksFold: 0
+  usingLogRolloff: 0
+--- !u!1 &2030583119375805116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030583119375805119}
+  - component: {fileID: 2030583119375805118}
+  - component: {fileID: 2030583119375805117}
+  - component: {fileID: 2030583119375805112}
+  m_Layer: 0
+  m_Name: GameManager_DEBUG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030583119375805119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583119375805116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.9139502, y: -2.120698, z: 5.7506337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2030583120171685256}
+  - {fileID: 2030583119165382773}
+  - {fileID: 2030583120529555384}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030583119375805118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583119375805116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162027cf25e71ad4ca6744ecd9b29b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingSceneIndex: 1
+  sceneIndexes: 
+  onGameStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2030583119375805117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583119375805116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892a01ea1d5fad849b0f5a574607a72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignOnStart: 1
+  newGameState: 1
+--- !u!114 &2030583119375805112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583119375805116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457f5e97c6ac1b34c8581ffab94b6915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 959439f22e91735468932596af314132, type: 2}
+  initialSneak: 1
+  intialChase: 0
+  intialMenu: 0
+--- !u!1 &2030583120171685263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030583120171685256}
+  - component: {fileID: 1393689397}
+  m_Layer: 0
+  m_Name: SneakBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030583120171685256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583120171685263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030583119375805119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393689397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583120171685263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6214d9bea85c048448741528c759aa86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioObject: {fileID: 11400000, guid: ab50d07d07422a74e9e1d01aa4f3ddc0, type: 2}
+  defaultChannel: -1
+  masterVolume: 1
+  overrideMasterVolume: 0
+  masterVolumeOverride: 1
+  playUpdateMode: 1
+  overridePlayUpdateMode: 0
+  playUpdateModeOverride: 1
+  TargetToFollow: {fileID: 0}
+  Mute: 0
+  OverrideValues: 0
+  overrideRandomVolumeMultiplier: 0
+  randomVolumeMultiplier: 1
+  overrideRandomPitchMultiplier: 0
+  randomPitchMultiplier: 1
+  overrideAudioClip: 0
+  audioClipOverride: {fileID: 0}
+  overrideVolume: 0
+  volumeOverride: 1
+  overridePitch: 0
+  pitchOverride: 1
+  overrideSpatialMode: 0
+  spatialMode2DOverride: 0
+  overrideStereoPan: 0
+  stereoPanOverride: 0
+  overrideSpread: 0
+  spreadOverride: 0
+  overrideDopplerLevel: 0
+  dopplerLevelOverride: 0.25
+  overrideReverbZone: 0
+  reverbZoneMixOverride: 1
+  overrideDistance: 0
+  minDistanceOverride: 1
+  maxDistanceOverride: 20
+  overrideMixerGroup: 0
+  mixerGroupOverride: {fileID: 0}
+  occludeSound: 0
+  overrideOccludeSound: 0
+  occludeSoundOverride: 0
+  delay: 0
+  delayUpdateMode: 0
+  overrideDelayUpdateMode: 0
+  delayUpdateModeOverride: 0
+  overrideVolumeRolloff: 0
+  volumeRolloffOverride: 0
+  volumeRolloffCurveOverride:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  NormalizedLength: 1
+  overrideSpatialize: 0
+  spatializeOverride: 0
+  playOnStart: 1
+  fadeInOnStart: 0
+  fadeInOnStartTime: 1
+  ignoreListenerPause: 0
+  overrideIgnoreListenerPause: 0
+  ignoreListenerPauseOverride: 0
+  persistsBetweenScenes: 0
+  paused: 0
+  overridePaused: 0
+  pausedOverride: 0
+  StartDistance: 0
+  outOfRange: 0
+  scene:
+    m_Handle: 0
+  init: 0
+  OnPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOutOfRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoop:
+    m_PersistentCalls:
+      m_Calls: []
+  callbacksFold: 0
+  usingLogRolloff: 0
+--- !u!1 &2030583120529555391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030583120529555384}
+  - component: {fileID: 2109712645}
+  m_Layer: 0
+  m_Name: MenuBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030583120529555384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583120529555391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030583119375805119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109712645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030583120529555391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6214d9bea85c048448741528c759aa86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioObject: {fileID: 11400000, guid: 71c362d018b66c649be77744bdf45d79, type: 2}
+  defaultChannel: -1
+  masterVolume: 1
+  overrideMasterVolume: 0
+  masterVolumeOverride: 1
+  playUpdateMode: 1
+  overridePlayUpdateMode: 0
+  playUpdateModeOverride: 1
+  TargetToFollow: {fileID: 0}
+  Mute: 0
+  OverrideValues: 0
+  overrideRandomVolumeMultiplier: 0
+  randomVolumeMultiplier: 1
+  overrideRandomPitchMultiplier: 0
+  randomPitchMultiplier: 1
+  overrideAudioClip: 0
+  audioClipOverride: {fileID: 0}
+  overrideVolume: 0
+  volumeOverride: 1
+  overridePitch: 0
+  pitchOverride: 1
+  overrideSpatialMode: 0
+  spatialMode2DOverride: 0
+  overrideStereoPan: 0
+  stereoPanOverride: 0
+  overrideSpread: 0
+  spreadOverride: 0
+  overrideDopplerLevel: 0
+  dopplerLevelOverride: 0.25
+  overrideReverbZone: 0
+  reverbZoneMixOverride: 1
+  overrideDistance: 0
+  minDistanceOverride: 1
+  maxDistanceOverride: 20
+  overrideMixerGroup: 0
+  mixerGroupOverride: {fileID: 0}
+  occludeSound: 0
+  overrideOccludeSound: 0
+  occludeSoundOverride: 0
+  delay: 0
+  delayUpdateMode: 0
+  overrideDelayUpdateMode: 0
+  delayUpdateModeOverride: 0
+  overrideVolumeRolloff: 0
+  volumeRolloffOverride: 0
+  volumeRolloffCurveOverride:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  NormalizedLength: 1
+  overrideSpatialize: 0
+  spatializeOverride: 0
+  playOnStart: 1
+  fadeInOnStart: 0
+  fadeInOnStartTime: 1
+  ignoreListenerPause: 0
+  overrideIgnoreListenerPause: 0
+  ignoreListenerPauseOverride: 0
+  persistsBetweenScenes: 0
+  paused: 0
+  overridePaused: 0
+  pausedOverride: 0
+  StartDistance: 0
+  outOfRange: 0
+  scene:
+    m_Handle: 0
+  init: 0
+  OnPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOutOfRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoop:
+    m_PersistentCalls:
+      m_Calls: []
+  callbacksFold: 0
+  usingLogRolloff: 0
