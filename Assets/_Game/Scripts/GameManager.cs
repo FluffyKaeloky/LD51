@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     }
     private GameStates currentGameState = GameStates.Intro;
 
-    private int currentLevelIndex = 0;
+    private int currentLevelIndex = -1;
 
     private UIScreenFader screenFader = null;
 
@@ -84,11 +84,11 @@ public class GameManager : MonoBehaviour
     {
         CurrentGameState = GameStates.Loading;
 
+        currentLevelIndex++;
+        
         screenFader.FadeIn(() => 
         {
             StartCoroutine(LoadSceneInternal(sceneIndexes[currentLevelIndex]));
-            currentLevelIndex++;
-
         });
     }
 
